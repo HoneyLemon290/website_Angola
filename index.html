@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="squelette.css">
+<title>Page Title</title>
+</head>
+<body>
+<!--<nav class="catego">
+		<div class="caree">
+			<a href="https://www.youtube.com/watch?v=Llq0YtjP81g">Découvrez!</a>
+		</div>
+		<div class="caree">
+			<a href="https://www.youtube.com/watch?v=256aPQh8tYo&list=RD256aPQh8tYo&start_radio=1">Vibrez!</a>
+		</div>
+		<div class="caree">
+			<a href="https://www.tripadvisor.fr/Attractions-g293762-Activities-Angola.html">Profitez!!</a>
+
+		</div>
+		<div class="caree">
+
+		</div>
+</nav>-->
+<div class="accueil">
+	<div class="one">WELCOME TO ANGOLA 🇦🇴</div>
+	<div class="two">
+		<img src="pictures/background_final.png" alt="Mufete"></div>
+<div id="polaroids">
+	<div class="polaroid">
+		<img id="polaroid1" src="images_polaroid/polaroid_angola_place_final.png" alt="place">
+	</div>
+	<div class="polaroid">
+		<img id="polaroid2" src="images_polaroid/polaroid_mufete_final.png" alt="Mufete">
+	</div>
+	<div class="polaroid">
+		<img id="polaroid4" src="images_polaroid/polaroid_angola_mousse.png" alt="mousse">
+	</div>
+	<div class="polaroid">
+		<img id="polaroid5" src="images_polaroid/polaroid_angola_mufete.png" alt="prato">
+	</div>
+	<div class="polaroid">
+		<img id="polaroid3" src="images_polaroid/polaroid_angola_2.png" alt="angola">
+	</div>
+</div>
+<p id="text_polaroid">"L’Angola, terre de soleil et de passion 🌍🇦🇴✨
+Plages dorées 🏖️, montagnes vertes 🌿 et chutes puissantes 💦 : l’Angola est un coup de foudre. Entre Luanda, vibrante et moderne 🏙️🎶, et les traditions chaleureuses des provinces, chaque moment est une aventure.
+Ici, on danse la kizomba 💃, on savoure un mufete 🐟🔥, et on se laisse porter par l’accueil légendaire des Angolais. "Bem-vindo a casa!" (Bienvenue à la maison !) – une phrase qui dit tout.
+Un pays où la nature, la culture et la joie de vivre s’embrasent. 💛🖤💙😊"
+
+</p>
+<script>
+	function resetPolaroid(){
+		let polaroids=document.querySelectorAll("#polaroids > div > img");
+		for ( let polaroid_index =0; polaroid_index<polaroids.length; polaroid_index++){
+			polaroids[polaroid_index].style.zIndex=polaroid_index;
+			polaroids[polaroid_index].style.filter= "" ;
+		}
+	}
+
+	function polaroidEvents(event){
+		resetPolaroid();
+		event.target.style.zIndex=10;
+		event.target.style.filter="drop-shadow(0 0 2rem rgb(0, 0, 0 ))" ;
+		let text_polaroid=document.getElementById("text_polaroid");
+		if (event.target.alt ==="mousse"){
+					text_polaroid.innerHTML="La mousse de maracuja, c’est comme un nuage qui aurait décidé de goûter le paradis 🍮✨. Acidulé, doux, et si léger que tu te demandes s’il n’a pas été fabriqué par des fées. Attention : ce dessert est une arme de séduction massive. ‘Só mais uma colher…’ (Juste une autre cuillère…) 😋"
+
+		}
+		else if (event.target.alt ==="prato"){
+					text_polaroid.innerHTML="🎉 Mufete tá pronto! (Le mufete est prêt !) ALERTE GOURMANDE ! Le mufete débarque, et avec lui, l’odeur envoûtante du poisson grillé 🐟, des épices qui dansent et du riz qui n’attend que toi. C’est le repas qui transforme une simple journée en fête, où chaque bouchée est une bomba (une bombe) de saveurs. Prépare-toi : après un mufete, ton cœur (et ton estomac) seront conquis à jamais ! ‘Angola é bom!’ (L’Angola, c’est bon !) 💛🖤💙 "
+
+		}
+			else if (event.target.alt ==="angola"){
+					text_polaroid.innerHTML="BOOM. 105 mètres de puissance pure 💥, une chute d’eau qui rugit comme un lion 🦁 et un panorama à te faire oublier ton prénom. ‘Kalandula, oh!’ (Oh, Calandula ! – expression d’émerveillement en umbundu) 🌊💦 Les chutes de Calandula, c’est l’Angola qui te montre sa carte maîtresse : ‘Tu veux de l’aventure ? La voilà.’ Prépare-toi à avoir le souffle coupé… et ton Instagram explosé 📸!"
+
+		}
+			else if (event.target.alt ==="place"){
+					text_polaroid.innerHTML="Le soleil se couche sur la Marginal, peignant le ciel de rose et doré 🌅. Les vagues murmurent des secrets à la ville, tandis que les rires des enfants et le son des kizombas 🎶 s’élèvent dans l’air salin. Ici, chaque pas est une scène de film, chaque regard une histoire. ‘Isto é Luanda, meu amor…’ (C’est Luanda, mon amour…)"
+
+		}
+			else if (event.target.alt ==="Mufete"){
+					text_polaroid.innerHTML="Imagine un homme qui soigne les malades le matin 🩺, écrit des poèmes le soir ✍️, et libère un pays entre les deux. Agostinho Neto, c’est le genre de héros qui te fait dire : ‘Mas… ele tinha uma capa ou quê?’ (Mais… il avait une cape ou quoi ?) 😄 Médecin, poète, président, et toujours avec le sourire. ‘Este sim, sabia!’ (Lui, il savait comment faire !) 🇦🇴"
+
+		}
+		else{
+
+		}
+
+	}
+
+	resetPolaroid();
+
+	let polaroids=document.querySelectorAll("#polaroids > div > img");
+	
+	//console.log(polaroids);
+	for ( let polaroid_index =0; polaroid_index<polaroids.length; polaroid_index++){
+		console.log(polaroid_index);
+		polaroids[polaroid_index].addEventListener("click",polaroidEvents)
+	}
+
+		polaroids.forEach(img =>{
+		img.addEventListener("click",polaroidEvents)
+
+
+	
+	})
+
+
+
+</script>
+</body>
+</html>
